@@ -3,7 +3,9 @@
     <div class="row">
       <div class="col-sm-12">
         <navHeader @pageWasChanged="currentPage = $event"></navHeader>
-        <component :is="currentPage"></component>
+        <keep-alive>
+          <component :is="currentPage"></component>
+        </keep-alive>
       </div>
     </div>
   </div>

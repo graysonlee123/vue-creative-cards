@@ -12,14 +12,5 @@
 </script>
 
 <style>
-  .edit-area {
-    background-color: #d2f9f9;
-    padding: 20px;
-    height: 800px;
-  }
 
-  .card-display {
-    height: 800px;
-    padding: 20px;
-  }
 </style>
