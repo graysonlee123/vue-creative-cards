@@ -6,37 +6,55 @@
         <keep-alive>
           <component :is="currentPage"></component>
         </keep-alive>
+        <cc-footer>
+          <p class="text-center" slot="app-name">&copy; Creative Cards</p>
+          <nav>
+            <ul class="nav justify-content-center">
+              <li class="nav-item">
+                <a href="#" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Contact</a>
+              </li>
+            </ul>
+          </nav>
+        </cc-footer>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue';
-import CardFront from './components/card/CardFront.vue'
-import CardInsideLeft from './components/card/CardInsideLeft.vue'
-import CardInsideRight from './components/card/CardInsideRight.vue'
-import CardBack from './components/card/CardBack.vue'
+import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
+import CardFront from "./components/card/CardFront.vue";
+import CardInsideLeft from "./components/card/CardInsideLeft.vue";
+import CardInsideRight from "./components/card/CardInsideRight.vue";
+import CardBack from "./components/card/CardBack.vue";
 
 export default {
   data: function() {
     return {
-      currentPage: 'cardFront'
-    }
+      currentPage: "cardFront"
+    };
   },
   components: {
     navHeader: Header,
     cardFront: CardFront,
     CardInsideLeft: CardInsideLeft,
     CardInsideRight: CardInsideRight,
-    CardBack: CardBack
+    CardBack: CardBack,
+    ccFooter: Footer
   }
-}
+};
 </script>
 
 <style>
-  body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #333; 
-  }
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #333;
+}
 </style>
