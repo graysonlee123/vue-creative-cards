@@ -28,10 +28,20 @@ export default {
         "user_uploads/" + this.file.name
       );
       storageRef.put(this.file);
+
+      const reader = new FileReader();
+      reader.readAsDataURL(this.file);
+
+      reader.onload = function(f) {
+        document.getElementById("image").src = f.target.result;
+      };
     }
   }
 };
 </script>
 
-<style>
+<style scoped>
+img {
+  max-width: 200px;
+}
 </style>
