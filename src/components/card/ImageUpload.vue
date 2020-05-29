@@ -8,7 +8,7 @@
       <progress value="0" max="100" id="progressBar"></progress>
       <br />
       <img id="image" />
-      <button type="button" id="setImageButton">Set Image</button>
+      <button type="button" id="setImageButton" style="display: none;" @click="setImage">Set Image</button>
     </div>
   </div>
 </template>
@@ -24,6 +24,8 @@ export default {
   },
   methods: {
     uploadFile: function(e) {
+      document.getElementById("setImageButton").style.display = "none";
+      
       this.file = e.target.files[0];
       const storageRef = Firebase.storage().ref(
         "user_uploads/" + this.file.name
@@ -43,9 +45,15 @@ export default {
         let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
 
         document.getElementById("progressBar").value = progress;
-      });
 
-      this.$emit('displayImageChanged', this.file.name);
+        if (progress === 100) {
+          document.getElementById("setImageButton").style.display =
+            "inline-block";
+        }
+      });
+    },
+    setImage: function() {
+      this.$emit("displayImageChanged", this.file.name);
     }
   }
 };
