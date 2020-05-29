@@ -35,6 +35,9 @@ import CardInsideLeft from "./components/card/CardInsideLeft.vue";
 import CardInsideRight from "./components/card/CardInsideRight.vue";
 import CardBack from "./components/card/CardBack.vue";
 
+import FirebaseConfig from "../firebaseConfig.js";
+console.log(FirebaseConfig);
+
 export default {
   data: function() {
     return {
