@@ -2,7 +2,7 @@
   <div @mouseover="showOptions = true" @mouseleave="showOptions = false">
     <form class="small" v-show="showOptions">
       <label for="selectBox">Font size</label>
-      <select class="custom-select custom-select-inline" id="selectBox" v-model="setFontSize">
+      <select class="custom-select custom-select-inline" v-model="setFontSize">
         <option value="42">42px</option>
         <option value="48">48px</option>
         <option value="56">56px</option>

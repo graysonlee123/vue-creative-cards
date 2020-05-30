@@ -64,4 +64,8 @@ button {
   position: absolute;
   z-index: 1;
 }
+
+img {
+  width: 130%;
+}
 </style>
