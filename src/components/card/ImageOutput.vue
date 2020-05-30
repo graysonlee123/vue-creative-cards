@@ -1,5 +1,11 @@
 <template>
-  <div class="image-container" :style="styleObject">
+  <div
+    class="image-container"
+    :style="styleObject"
+    @mouseover="showOptions = true"
+    @mouseleave="showOptions = false"
+  >
+    <button type="button" class="btn btn-outline-danger btn-sm" v-show="showOptions" @click="clearImageProp">Remove image</button>
     <img id="outputImage" />
     {{ displayImage }}
   </div>
@@ -16,7 +22,15 @@ export default {
     containerHeight: {
       type: Number,
       default: 200
+    },
+    clearImageProp: {
+      type: Function
     }
+  },
+  data: function() {
+    return {
+      showOptions: false
+    };
   },
   watch: {
     displayImage: function() {
@@ -24,7 +38,7 @@ export default {
         "user_uploads/" + this.displayImage
       );
       storageRef.getDownloadURL().then(function(data) {
-        const image = document.getElementById('outputImage')
+        const image = document.getElementById("outputImage");
         image.src = data;
       });
     }
@@ -39,10 +53,15 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .image-container {
   border: 1px dotted grey;
   overflow: hidden;
   margin: 5px 0;
+}
+
+button {
+  position: absolute;
+  z-index: 1;
 }
 </style>
