@@ -6,8 +6,7 @@
     @mouseleave="showOptions = false"
   >
     <button type="button" class="btn btn-outline-danger btn-sm" v-show="showOptions" @click="clearImageProp">Remove image</button>
-    <img id="outputImage" />
-    {{ displayImage }}
+    <img id="outputImage" :src="displayImage" :alt="displayImage"/>
   </div>
 </template>
 
