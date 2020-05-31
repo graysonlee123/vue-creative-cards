@@ -28,7 +28,10 @@ import ImageUpload from "./ImageUpload";
 import ImageOutput from "./ImageOutput";
 import SectionCompleted from "./SectionCompleted";
 
+import { clearImageMixin } from "../../clearImageMixin";
+
 export default {
+  mixins: [clearImageMixin],
   data: function() {
     return {
       textBoxValue1: "",
@@ -36,13 +39,6 @@ export default {
       textBoxValue3: "",
       imageName: ""
     };
-  },
-  methods: {
-    clearImage: function() {
-      if (this.imageName != "") {
-        this.imageName = "Annotation 2019-02-13 233319.jpg";
-      }
-    }
   },
   components: {
     ccTextInput: TextInput,
