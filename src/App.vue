@@ -3,9 +3,11 @@
     <div class="row">
       <div class="col-sm-12">
         <navHeader @pageWasChanged="currentPage = $event"></navHeader>
-        <keep-alive>
-          <component :is="currentPage"></component>
-        </keep-alive>
+        <transition name="fade" mode="out-in">
+          <keep-alive>
+            <component :is="currentPage"></component>
+          </keep-alive>
+        </transition>
         <cc-footer>
           <p class="text-center" slot="app-name">&copy; Creative Cards</p>
           <nav>
@@ -61,11 +63,13 @@ body {
   color: #333;
 }
 
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
 </style>
