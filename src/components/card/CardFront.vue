@@ -6,10 +6,15 @@
       <hr />
       <cc-text-input @displayTextChanged="textBoxValue2 = $event"></cc-text-input>
       <cc-text-input @displayTextChanged="textBoxValue3 = $event"></cc-text-input>
+      <cc-section-completed></cc-section-completed>
     </div>
     <div class="col-sm-6 card card-display">
       <cc-text-output :displayText="textBoxValue1" :containerHeight="130"></cc-text-output>
-      <cc-image-output :displayImage="imageName" :containerHeight="350" :clearImageProp="clearImage"></cc-image-output>
+      <cc-image-output
+        :displayImage="imageName"
+        :containerHeight="350"
+        :clearImageProp="clearImage"
+      ></cc-image-output>
       <cc-text-output :displayText="textBoxValue2" :containerHeight="130"></cc-text-output>
       <cc-text-output :displayText="textBoxValue3" :containerHeight="130"></cc-text-output>
     </div>
@@ -20,7 +25,8 @@
 import TextInput from "./TextInput";
 import TextOutput from "./TextOutput";
 import ImageUpload from "./ImageUpload";
-import ImageOutput from './ImageOutput';
+import ImageOutput from "./ImageOutput";
+import SectionCompleted from "./SectionCompleted";
 
 export default {
   data: function() {
@@ -33,8 +39,8 @@ export default {
   },
   methods: {
     clearImage: function() {
-      if (this.imageName != '') {
-        this.imageName = 'Annotation 2019-02-13 233319.jpg'
+      if (this.imageName != "") {
+        this.imageName = "Annotation 2019-02-13 233319.jpg";
       }
     }
   },
@@ -42,7 +48,8 @@ export default {
     ccTextInput: TextInput,
     ccTextOutput: TextOutput,
     ccImageUpload: ImageUpload,
-    ccImageOutput: ImageOutput
+    ccImageOutput: ImageOutput,
+    ccSectionCompleted: SectionCompleted
   }
 };
 </script>
